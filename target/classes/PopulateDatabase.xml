@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2014 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin1" />
+		<property name="password" value="e00cf25ad42683b3df678c61f42c6bda" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="business1" />
+		<property name="password" value="ab36fdc41550db15fd4a47f2e44f0076" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="BUSINESS" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="player1" />
+		<property name="password" value="5d2bbc279b5ce75815849d5e3f0533ec" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PLAYER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="player2" />
+		<property name="password" value="88e77ff74930f37010370c296d14737b" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PLAYER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="business2" />
+		<property name="password" value="9bde7258dadf923622274ab89ca3d28d" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="BUSINESS" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount6" class="security.UserAccount">
+		<property name="username" value="business3" />
+		<property name="password" value="c5f7e18fb7c13537b62ab02f9d19bfde" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="BUSINESS" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount7" class="security.UserAccount">
+		<property name="username" value="player3" />
+		<property name="password" value="1aa3814dca32e4c0b79a2ca047ef1db0" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PLAYER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount8" class="security.UserAccount">
+		<property name="username" value="player4" />
+		<property name="password" value="12efaba7fd50f5c66bd295683c0ce2a7" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PLAYER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Admin -->
+	
+	<bean id="admin1" class="domain.Admin">
+		<property name="name" value="Administrador" />
+		<property name="email" value="admin@boardgames.com" />
+		<property name="avatar" value="http://loopssolutions.com/Images/admin.png" />
+		<property name="userAccount">
+			<ref bean="userAccount1" />
+		</property>
+	</bean>
+	
+	<!-- Business -->
+	
+	<bean id="business1" class="domain.Business">
+		<property name="name" value="Juegos Sevilla" />
+		<property name="email" value="sevillajuegos@mail.com" />
+		<property name="avatar" value="http://static.flickr.com/47/193481952_440c04ef2f.jpg" />
+		<property name="userAccount">
+			<ref bean="userAccount2" />
+		</property>
+		<property name="cif" value="H80646169" />
+		<property name="street" value="C/ Marqués de Pickman Nº12" />
+		<property name="zip" value="41005" />
+		<property name="city" value="Sevilla" />
+		<property name="web" value="http://www.sevillajuegos.com" />
+		<property name="phone" value="954555444" />
+		<property name="events">
+			<list>
+				<ref bean="promotion1" />
+				<ref bean="tournament1" />
+				<ref bean="tournament2" />
+			</list>
+		</property>
+		<property name="rating" value="2.5" />
+		<property name="userVotes">
+			<list>
+				<ref bean="userVote1" />
+				<ref bean="userVote2" />
+			</list>
+		</property>
+		<property name="bulletins">
+			<list>
+				<ref bean="bulletin1" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="business2" class="domain.Business">
+		<property name="name" value="Ágora Juegos" />
+		<property name="email" value="info@agorajuegos.es" />
+		<property name="avatar" value="http://www.holored.com/sites/default/files/imagecache/image_preview/images/11/10408121_1491520281105854_3211199606196874546_n.jpg" />
+		<property name="userAccount">
+			<ref bean="userAccount5" />
+		</property>
+		<property name="cif" value="F1286307B" />
+		<property name="street" value="C/ Asunción Nº66" />
+		<property name="zip" value="41011" />
+		<property name="city" value="Sevilla" />
+		<property name="web" value="http://www.agorajuegos.es/es/" />
+		<property name="phone" value="955092336" />
+		<property name="events">
+			<list>
+				<ref bean="promotion2" />
+			</list>
+		</property>
+		<property name="rating" value="0.0" />
+		<property name="userVotes">
+			<list></list>
+		</property>
+		<property name="bulletins">
+			<list>
+				<ref bean="bulletin2" />
+				<ref bean="bulletin3" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="business3" class="domain.Business">
+		<property name="name" value="Mesa 291" />
+		<property name="email" value="mesa291@mesa291.com" />
+		<property name="avatar" value="http://www.explorajuegos.com/wp-content/uploads/2016/03/mesa291-1.jpg" />
+		<property name="userAccount">
+			<ref bean="userAccount6" />
+		</property>
+		<property name="cif" value="S6996563J" />
+		<property name="street" value="C/ Óscar Carvallo Nº3 Local C" />
+		<property name="zip" value="41018" />
+		<property name="city" value="Sevilla" />
+		<property name="web" value="http://www.mesa291.com/" />
+		<property name="phone" value="954416499" />
+		<property name="events">
+			<list></list>
+		</property>
+		<property name="rating" value="4.0" />
+		<property name="userVotes">
+			<list>
+				<ref bean="userVote3" />
+			</list>
+		</property>
+		<property name="bulletins">
+			<list></list>
+		</property>
+	</bean>
+	
+	<!-- Player -->
+	
+	<bean id="player1" class="domain.Player">
+		<property name="name" value="Antonio Pérez" />
+		<property name="email" value="aperez@mail.com" />
+		<property name="avatar" value="http://i.imgur.com/AtBE7.png" />
+		<property name="userAccount">
+			<ref bean="userAccount3" />
+		</property>
+		<property name="inscriptions">
+			<list>
+				<ref bean="inscription1" />
+				<ref bean="inscription2" />
+			</list>
+		</property>
+		<property name="tournaments">
+			<list>
+				<ref bean="tournament2" />
+			</list>
+		</property>
+		<property name="userVotes">
+			<list></list>
+		</property>
+		<property name="followers">
+			<list></list>
+		</property>
+		<property name="followeds">
+			<list>
+				<ref bean="following1" />
+				<ref bean="following2" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="player2" class="domain.Player">
+		<property name="name" value="Juan Torres" />
+		<property name="email" value="jtorres@mail.com" />
+		<property name="avatar" value="http://www.subeimagenes.com/img/2afjzpt-588608.jpg" />
+		<property name="userAccount">
+			<ref bean="userAccount4" />
+		</property>
+		<property name="inscriptions">
+			<list>
+				<ref bean="inscription3" />
+			</list>
+		</property>
+		<property name="tournaments">
+			<list></list>
+		</property>
+		<property name="userVotes">
+			<list>
+				<ref bean="userVote2" />
+			</list>
+		</property>
+		<property name="followers">
+			<list>
+				<ref bean="following1" />
+			</list>
+		</property>
+		<property name="followeds">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="player3" class="domain.Player">
+		<property name="name" value="María Salgado" />
+		<property name="email" value="msalgado@mail.com" />
+		<property name="avatar" value="http://fotouser.miarroba.st/c6093428/300/micha_hinata-chan.jpg" />
+		<property name="userAccount">
+			<ref bean="userAccount7" />
+		</property>
+		<property name="inscriptions">
+			<list>
+				<ref bean="inscription4" />
+			</list>
+		</property>
+		<property name="tournaments">
+			<list></list>
+		</property>
+		<property name="userVotes">
+			<list>
+				<ref bean="userVote1" />
+				<ref bean="userVote3" />
+			</list>
+		</property>
+		<property name="followers">
+			<list>
+				<ref bean="following2" />
+				<ref bean="following4" />
+			</list>
+		</property>
+		<property name="followeds">
+			<list>
+				<ref bean="following3" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="player4" class="domain.Player">
+		<property name="name" value="Natalia Domínguez" />
+		<property name="email" value="nataliadom@mail.com" />
+		<property name="avatar" value="https://pbs.twimg.com/profile_images/92368341/fluffy2_400x400.jpg" />
+		<property name="userAccount">
+			<ref bean="userAccount8" />
+		</property>
+		<property name="inscriptions">
+			<list></list>
+		</property>
+		<property name="tournaments">
+			<list></list>
+		</property>
+		<property name="userVotes">
+			<list></list>
+		</property>
+		<property name="followers">
+			<list>
+				<ref bean="following3" />
+			</list>
+		</property>
+		<property name="followeds">
+			<list>
+				<ref bean="following4" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Category -->
+	
+	<bean id="category1" class="domain.Category">
+		<property name="name" value="Estrategia" />
+		<property name="description" value="Juegos de estrategia y wargames." />
+		<property name="photo" value="https://cdn3.iconfinder.com/data/icons/chess-2/512/640594-pawn_piece_chess_strategy-512.png" />
+		<property name="categorizations">
+			<list>
+				<ref bean="categorization1" />
+				<ref bean="categorization2" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="category2" class="domain.Category">
+		<property name="name" value="LCG" />
+		<property name="description" value="Juegos de cartas coleccionables." />
+		<property name="photo" value="https://lh3.googleusercontent.com/proxy/H1wpiq469IbaneZGujU5CwnzDTgb20--G2QOLYYUJu-BeypCh5bwxTKXwgcYEgz35vRtWV9n8I-lyvDhPwcxWyfyCnetmi5DsG24eAw7_BQxYCi0RZh8bWH6oLhIHORiSSpiQWZewxzuNQ6DILZ3HElicFhGx3JkNIWic_9mtYSp=w506-h284" />
+		<property name="categorizations">
+			<list>
+				<ref bean="categorization3" />
+				<ref bean="categorization4" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="category3" class="domain.Category">
+		<property name="name" value="Party" />
+		<property name="description" value="Diversión para toda la familia y para disfrutar de un buen rato con amigos." />
+		<property name="photo" value="http://www.iconarchive.com/download/i99487/webalys/kameleon.pics/Party-Poppers.ico" />
+		<property name="categorizations">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="category4" class="domain.Category">
+		<property name="name" value="Gestión de recursos" />
+		<property name="description" value="¡Gestiona tus recursos para ser el mejor!" />
+		<property name="photo" value="http://labsk.net/wkr/wp-content/uploads/2015/09/cubitos.jpg" />
+		<property name="categorizations">
+			<list>
+				<ref bean="categorization5" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- BoardGame -->
+	
+	<bean id="boardGame1" class="domain.BoardGame">
+		<property name="title" value="Risk" />
+		<property name="description" value="El juego de la conquista del mundo." />
+		<property name="numberMaxPlayers" value="6" />
+		<property name="photo" value="http://4.bp.blogspot.com/-GgmQLICKNzs/UYPxlx_0bTI/AAAAAAAAAgo/u6igk_CD5rg/s1600/risk-hasbro+otro+contenido.jpg" />
+		<property name="categorizations">
+			<list>
+				<ref bean="categorization1" />
+			</list>
+		</property>
+		<property name="events">
+			<list>
+				<ref bean="promotion1" />
+				<ref bean="tournament1" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="boardGame2" class="domain.BoardGame">
+		<property name="title" value="Stratego" />
+		<property name="description" value="¡Captura la bandera del enemigo y gana!" />
+		<property name="numberMaxPlayers" value="2" />
+		<property name="photo" value="http://www.stratego.com/wp-content/uploads/2014/10/stratego-multiplayer-screenshot1-300x225.jpg" />
+		<property name="categorizations">
+			<list>
+				<ref bean="categorization2" />
+			</list>
+		</property>
+		<property name="events">
+			<list>
+				<ref bean="tournament2" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="boardGame3" class="domain.BoardGame">
+		<property name="title" value="Magic: The Gathering" />
+		<property name="description" value="Reta a otros magos y combate a través de los planos..." />
+		<property name="numberMaxPlayers" value="2" />
+		<property name="photo" value="https://upload.wikimedia.org/wikipedia/en/a/aa/Magic_the_gathering-card_back.jpg" />
+		<property name="categorizations">
+			<list>
+				<ref bean="categorization3" />
+			</list>
+		</property>
+		<property name="events">
+			<list>
+				<ref bean="promotion2" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="boardGame4" class="domain.BoardGame">
+		<property name="title" value="Netrunner" />
+		<property name="description" value="Hacker o corporación. Elige un bando y sobrevive en un futuro digital." />
+		<property name="numberMaxPlayers" value="2" />
+		<property name="photo" value="https://cf.geekdo-images.com/images/pic1324609.jpg" />
+		<property name="categorizations">
+			<list>
+				<ref bean="categorization4" />
+				<ref bean="categorization5" />
+			</list>
+		</property>
+		<property name="events">
+			<list></list>
+		</property>
+	</bean>
+	
+	<!-- Categorization -->
+	
+	<bean id="categorization1" class="domain.Categorization">
+		<property name="boardGame">
+			<ref bean="boardGame1" />
+		</property>
+		<property name="category">
+			<ref bean="category1" />
+		</property>
+	</bean>
+	
+	<bean id="categorization2" class="domain.Categorization">
+		<property name="boardGame">
+			<ref bean="boardGame2" />
+		</property>
+		<property name="category">
+			<ref bean="category1" />
+		</property>
+	</bean>
+	
+	<bean id="categorization3" class="domain.Categorization">
+		<property name="boardGame">
+			<ref bean="boardGame3" />
+		</property>
+		<property name="category">
+			<ref bean="category2" />
+		</property>
+	</bean>
+	
+	<bean id="categorization4" class="domain.Categorization">
+		<property name="boardGame">
+			<ref bean="boardGame4" />
+		</property>
+		<property name="category">
+			<ref bean="category2" />
+		</property>
+	</bean>
+	
+	<bean id="categorization5" class="domain.Categorization">
+		<property name="boardGame">
+			<ref bean="boardGame4" />
+		</property>
+		<property name="category">
+			<ref bean="category4" />
+		</property>
+	</bean>
+	
+	<!-- Promotion -->
+	
+	<bean id="promotion1" class="domain.Promotion">
+		<property name="title" value="Presentación Risk" />
+		<property name="description" value="Presentación del popular juego de conquistas. ¡Trae a tus amigos!" />
+		<property name="creationMoment" value="07/24/2016 00:00" />
+		<property name="startMoment" value="10/03/2016 20:00" />
+		<property name="finishMoment" value="10/05/2016 15:30" />
+		<property name="inscriptionDeadline" value="09/30/2016 23:59" />
+		<property name="numberMaxParticipants" value="30" />
+		<property name="location" value="ChIJc_iiI6RuEg0RbGU-Woe5QCY" />
+		<property name="business">
+			<ref bean="business1" />
+		</property>
+		<property name="boardGame">
+			<ref bean="boardGame1" />
+		</property>
+		<property name="inscriptions">
+			<list>
+				<ref bean="inscription1" />
+			</list>
+		</property>
+		<property name="sponsorName" value="Parker Bros." />
+		<property name="sponsorLogo" value="https://cf.geekdo-images.com/images/pic118553_t.jpg" />
+		<property name="sponsorPayment" value="40.0" />
+	</bean>
+	
+	<bean id="promotion2" class="domain.Promotion">
+		<property name="title" value="Avacyn Restaurado" />
+		<property name="description" value="Presentaremos la nueva colección de Magic, Avacyn Restaurado. Trae tu mazo y no te lo pierdas." />
+		<property name="creationMoment" value="05/02/2016 00:00" />
+		<property name="startMoment" value="05/12/2016 17:00" />
+		<property name="finishMoment" value="05/12/2016 22:00" />
+		<property name="inscriptionDeadline" value="05/11/2016 23:59" />
+		<property name="numberMaxParticipants" value="25" />
+		<property name="price" value="15.5" />
+		<property name="location" value="ChIJscvfnzlsEg0RDlKnpzd-f4Y" />
+		<property name="business">
+			<ref bean="business2" />
+		</property>
+		<property name="boardGame">
+			<ref bean="boardGame3" />
+		</property>
+		<property name="inscriptions">
+			<list>
+				<ref bean="inscription4" />
+			</list>
+		</property>
+		<property name="chronicle">
+			<ref bean="chronicle1" />
+		</property>
+	</bean>
+	
+	<!-- Tournament -->
+	
+	<bean id="tournament1" class="domain.Tournament">
+		<property name="title" value="Torneo de Risk" />
+		<property name="description" value="¿Serás capaz de conquistar el mundo?" />
+		<property name="creationMoment" value="06/15/2016 00:00" />
+		<property name="startMoment" value="10/15/2016 12:00" />
+		<property name="finishMoment" value="10/20/2016 12:00" />
+		<property name="inscriptionDeadline" value="10/10/2016 23:59" />
+		<property name="numberMaxParticipants" value="60" />
+		<property name="price" value="5.0" />
+		<property name="location" value="ChIJJbxtY79uEg0RTm_8a60d2_o" />
+		<property name="business">
+			<ref bean="business1" />
+		</property>
+		<property name="boardGame">
+			<ref bean="boardGame1" />
+		</property>
+		<property name="inscriptions">
+			<list></list>
+		</property>
+		<property name="award" value="Una caja del juego y un vale de 5 euros para gastar en nuestra tienda." />
+		<property name="stages">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="tournament2" class="domain.Tournament">
+		<property name="title" value="Torneo de Stratego" />
+		<property name="description" value="¡Gana a otros estrategas para ser el mejor!" />
+		<property name="creationMoment" value="03/01/2016 00:00" />
+		<property name="startMoment" value="04/01/2016 10:00" />
+		<property name="finishMoment" value="04/01/2016 22:00" />
+		<property name="inscriptionDeadline" value="03/20/2016 23:59" />
+		<property name="numberMaxParticipants" value="10" />
+		<property name="price" value="1.0" />
+		<property name="location" value="ChIJ8SCOj7duEg0RO7OqoRlfLxQ" />
+		<property name="business">
+			<ref bean="business1" />
+		</property>
+		<property name="boardGame">
+			<ref bean="boardGame2" />
+		</property>
+		<property name="inscriptions">
+			<list>
+				<ref bean="inscription2" />
+				<ref bean="inscription3" />
+			</list>
+		</property>
+		<property name="award" value="Un trofeo conmemorativo" />
+		<property name="stages">
+			<list>
+				<ref bean="stage1" />
+			</list>
+		</property>
+		<property name="winner">
+			<ref bean="player1" />
+		</property>
+		<property name="chronicle">
+			<ref bean="chronicle2" />
+		</property>
+	</bean>
+	
+	<!-- Stage -->
+	
+	<bean id="stage1" class="domain.Stage">
+		<property name="number" value="1" />
+		<property name="tournament">
+			<ref bean="tournament2" />
+		</property>
+		<property name="games">
+			<list>
+				<ref bean="game1" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Game -->
+	
+	<bean id="game1" class="domain.Game">
+		<property name="stage">
+			<ref bean="stage1" />
+		</property>
+		<property name="players">
+			<list>
+				<ref bean="player1" />
+				<ref bean="player2" />
+			</list>
+		</property>
+		<property name="gameWinner">
+			<ref bean="player1" />
+		</property>
+	</bean>
+	
+	<!-- Inscription -->
+	
+	<bean id="inscription1" class="domain.Inscription">
+		<property name="player">
+			<ref bean="player1" />
+		</property>
+		<property name="event">
+			<ref bean="promotion1" />
+		</property>
+	</bean>
+	
+	<bean id="inscription2" class="domain.Inscription">
+		<property name="player">
+			<ref bean="player1" />
+		</property>
+		<property name="event">
+			<ref bean="tournament2" />
+		</property>
+	</bean>
+	
+	<bean id="inscription3" class="domain.Inscription">
+		<property name="player">
+			<ref bean="player2" />
+		</property>
+		<property name="event">
+			<ref bean="tournament2" />
+		</property>
+	</bean>
+	
+	<bean id="inscription4" class="domain.Inscription">
+		<property name="gameList" value="https://docs.google.com/document/d/1ZXl83IdEJxFfyShR4cK6kBNudkKDD9oFkXPhEcX_l9g/edit?usp=sharing" />
+		<property name="player">
+			<ref bean="player3" />
+		</property>
+		<property name="event">
+			<ref bean="promotion2" />
+		</property>
+	</bean>
+	
+	<!-- Bulletin -->
+	
+	<bean id="bulletin1" class="domain.Bulletin">
+		<property name="title" value="¡Anunciamos nuestros eventos de Risk!" />
+		<property name="releaseDate" value="08/01/2016 15:30" />
+		<property name="text" value="Próximamente celebraremos un torneo y una promoción de Risk. ¡No te los pierdas!" />
+		<property name="photo" value="http://www.rangame.com/wp-content_uploads_2009_12_risk.jpg" />
+		<property name="business">
+			<ref bean="business1" />
+		</property>
+		<property name="events">
+			<list>
+				<ref bean="promotion1" />
+				<ref bean="tournament1" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="bulletin2" class="domain.Bulletin">
+		<property name="title" value="¡Nueva colección de Magic!" />
+		<property name="releaseDate" value="05/02/2016 00:00" />
+		<property name="text" value="Vamos a presentar Avacyn Restaurado, la nueva colección de Magic. ¡Vente!" />
+		<property name="photo" value="http://cdn.wallpapersafari.com/2/91/yWqkQS.jpg" />
+		<property name="business">
+			<ref bean="business2" />
+		</property>
+		<property name="events">
+			<list>
+				<ref bean="promotion2" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="bulletin3" class="domain.Bulletin">
+		<property name="title" value="¡Visítanos!" />
+		<property name="releaseDate" value="08/15/2016 12:00" />
+		<property name="text" value="Ven a visitar nuestra tienda, celebramos eventos a menudo." />
+		<property name="business">
+			<ref bean="business2" />
+		</property>
+		<property name="events">
+			<list></list>
+		</property>
+	</bean>
+	
+	<!-- Chronicle -->
+	
+	<bean id="chronicle1" class="domain.Chronicle">
+		<property name="title" value="Buen ambiente en la presentación" />
+		<property name="text" value="La presentación de Avacyn Restaurado fue todo un éxito, ¡enhorabuena a los participantes!" />
+		<property name="photos">
+			<list>
+				<value>http://media.wizards.com/images/magic/daily/arcana/864_40j2z3mfwo.jpg</value>
+				<value>http://3.bp.blogspot.com/-LWw8OKf1wqU/T8RvsY0178I/AAAAAAAAD1M/HlM66YnPOVU/s1600/magic_booster_avacyn_restaurada_2.jpg</value>
+			</list>
+		</property>
+		<property name="event">
+			<ref bean="promotion2" />
+		</property>
+	</bean>
+	
+	<bean id="chronicle2" class="domain.Chronicle">
+		<property name="title" value="Antonio Pérez ganó el torneo" />
+		<property name="text" value="El jugador Antonio Pérez ganó el torneo de Stratego y se llevó un trofeo conmemorativo." />
+		<property name="photos">
+			<list></list>
+		</property>
+		<property name="event">
+			<ref bean="tournament2" />
+		</property>
+	</bean>
+	
+	<!-- Following -->
+	
+	<bean id="following1" class="domain.Following">
+		<property name="follower">
+			<ref bean="player1" />
+		</property>
+		<property name="followed">
+			<ref bean="player2" />
+		</property>
+	</bean>
+	
+	<bean id="following2" class="domain.Following">
+		<property name="follower">
+			<ref bean="player1" />
+		</property>
+		<property name="followed">
+			<ref bean="player3" />
+		</property>
+	</bean>
+	
+	<bean id="following3" class="domain.Following">
+		<property name="follower">
+			<ref bean="player3" />
+		</property>
+		<property name="followed">
+			<ref bean="player4" />
+		</property>
+	</bean>
+	
+	<bean id="following4" class="domain.Following">
+		<property name="follower">
+			<ref bean="player4" />
+		</property>
+		<property name="followed">
+			<ref bean="player3" />
+		</property>
+	</bean>
+	
+	<!-- UserVote -->
+	
+	<bean id="userVote1" class="domain.UserVote">
+		<property name="score" value="3" />
+		<property name="player">
+			<ref bean="player3" />
+		</property>
+		<property name="business">
+			<ref bean="business1" />
+		</property>
+	</bean>
+	
+	<bean id="userVote2" class="domain.UserVote">
+		<property name="score" value="2" />
+		<property name="player">
+			<ref bean="player2" />
+		</property>
+		<property name="business">
+			<ref bean="business1" />
+		</property>
+	</bean>
+	
+	<bean id="userVote3" class="domain.UserVote">
+		<property name="score" value="4" />
+		<property name="player">
+			<ref bean="player3" />
+		</property>
+		<property name="business">
+			<ref bean="business3" />
+		</property>
+	</bean>
+	
+</beans>

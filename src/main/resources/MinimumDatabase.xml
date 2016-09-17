@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2014 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	
+	<!-- Admin -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin1" />
+		<property name="password" value="e00cf25ad42683b3df678c61f42c6bda" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="admin1" class="domain.Admin">
+		<property name="name" value="Administrador" />
+		<property name="email" value="admin@boardgames.com" />
+		<property name="avatar" value="http://loopssolutions.com/Images/admin.png" />
+		<property name="userAccount">
+			<ref bean="userAccount1" />
+		</property>
+	</bean>
+	
+	<!-- Default category -->
+	
+	<bean id="category1" class="domain.Category">
+		<property name="name" value="Default category" />
+		<property name="description" value="This is the default category" />
+		<property name="categorizations">
+			<list></list>
+		</property>
+	</bean>
+	
+</beans>

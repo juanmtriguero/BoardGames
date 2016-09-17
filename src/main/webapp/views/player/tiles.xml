@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles.xml
+ *
+ * Copyright (C) 2013 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+
+	<definition name="player/register" extends="master.page">	
+		<put-attribute name="title" value="Register as player" />
+		<put-attribute name="body" value="/views/player/register.jsp" />
+	</definition>
+
+	<definition name="player/auth/list" extends="master.page">	
+		<put-attribute name="title" value="Player list" />
+		<put-attribute name="body" value="/views/player/list.jsp" />
+	</definition>
+
+	<definition name="player/auth/participants" extends="master.page">	
+		<put-attribute name="title" value="Participants list" />
+		<put-attribute name="body" value="/views/player/participants.jsp" />
+	</definition>
+
+	<definition name="player/player/followeds" extends="master.page">	
+		<put-attribute name="title" value="My followeds" />
+		<put-attribute name="body" value="/views/player/list.jsp" />
+	</definition>
+
+	<definition name="player/player/followers" extends="master.page">	
+		<put-attribute name="title" value="My followers" />
+		<put-attribute name="body" value="/views/player/list.jsp" />
+	</definition>
+	
+</tiles-definitions>

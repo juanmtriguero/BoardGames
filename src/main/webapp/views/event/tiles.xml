@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles.xml
+ *
+ * Copyright (C) 2013 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+
+	<definition name="event/auth/list" extends="master.page">	
+		<put-attribute name="title" value="Events list" />
+		<put-attribute name="body" value="/views/event/list.jsp" />
+	</definition>
+
+	<definition name="event/auth/byBusiness" extends="master.page">	
+		<put-attribute name="title" value="Business events" />
+		<put-attribute name="body" value="/views/event/byBusiness.jsp" />
+	</definition>
+
+	<definition name="event/business/myEvents" extends="master.page">	
+		<put-attribute name="title" value="My events (created)" />
+		<put-attribute name="body" value="/views/event/myEvents.jsp" />
+	</definition>
+
+	<definition name="event/business/createPromotion" extends="master.page">	
+		<put-attribute name="title" value="Create promotion" />
+		<put-attribute name="body" value="/views/event/createPromotion.jsp" />
+	</definition>
+
+	<definition name="event/business/createTournament" extends="master.page">	
+		<put-attribute name="title" value="Create tournament" />
+		<put-attribute name="body" value="/views/event/createTournament.jsp" />
+	</definition>
+
+	<definition name="event/business/editPromotion" extends="master.page">	
+		<put-attribute name="title" value="Edit promotion" />
+		<put-attribute name="body" value="/views/event/editPromotion.jsp" />
+	</definition>
+
+	<definition name="event/business/editTournament" extends="master.page">	
+		<put-attribute name="title" value="Edit tournament" />
+		<put-attribute name="body" value="/views/event/editTournament.jsp" />
+	</definition>
+
+	<definition name="event/business/organisation" extends="master.page">	
+		<put-attribute name="title" value="Tournament organisation" />
+		<put-attribute name="body" value="/views/event/organisation.jsp" />
+	</definition>
+
+	<definition name="event/player/inscribed" extends="master.page">	
+		<put-attribute name="title" value="My events (inscribed)" />
+		<put-attribute name="body" value="/views/event/inscribed.jsp" />
+	</definition>
+
+	<definition name="event/player/join" extends="master.page">	
+		<put-attribute name="title" value="Inscribe to event" />
+		<put-attribute name="body" value="/views/event/join.jsp" />
+	</definition>
+
+	<definition name="event/auth/announced" extends="master.page">	
+		<put-attribute name="title" value="Announced events" />
+		<put-attribute name="body" value="/views/event/byBusiness.jsp" />
+	</definition>
+	
+</tiles-definitions>

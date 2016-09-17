@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * converters.xml
+ *
+ * Copyright (C) 2014 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd		
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd		
+	">
+
+	<util:list id="converters">
+	
+		<bean class="converters.BoardGameToStringConverter" />
+		<bean class="converters.BulletinToStringConverter" />
+		<bean class="converters.BusinessToStringConverter" />
+		<bean class="converters.CategoryToStringConverter" />
+		<bean class="converters.CategorizationToStringConverter" />
+		<bean class="converters.ChronicleToStringConverter" />
+		<bean class="converters.EventToStringConverter" />
+		<bean class="converters.FollowingToStringConverter" />
+		<bean class="converters.GameToStringConverter" />
+		<bean class="converters.InscriptionToStringConverter" />
+		<bean class="converters.PlayerToStringConverter" />
+		<bean class="converters.PromotionToStringConverter" />
+		<bean class="converters.TournamentToStringConverter" />
+		<bean class="converters.UserVoteToStringConverter" />
+		
+		<bean class="converters.StringToBoardGameConverter" />
+		<bean class="converters.StringToBulletinConverter" />
+		<bean class="converters.StringToBusinessConverter" />
+		<bean class="converters.StringToCategoryConverter" />
+		<bean class="converters.StringToCategorizationConverter" />
+		<bean class="converters.StringToChronicleConverter" />
+		<bean class="converters.StringToEventConverter" />
+		<bean class="converters.StringToFollowingConverter" />
+		<bean class="converters.StringToGameConverter" />
+		<bean class="converters.StringToInscriptionConverter" />
+		<bean class="converters.StringToPlayerConverter" />
+		<bean class="converters.StringToPromotionConverter" />
+		<bean class="converters.StringToTournamentConverter" />
+		<bean class="converters.StringToUserVoteConverter" />
+		
+	</util:list>
+	
+</beans>
